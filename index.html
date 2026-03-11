@@ -10,6 +10,8 @@
 
 <link rel="stylesheet" href="style.css">
 
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+
 </head>
 
 <body>
@@ -19,10 +21,12 @@
 <h2 class="logo">Pohaan Designer</h2>
 
 <ul>
+
 <li><a href="#about">About</a></li>
 <li><a href="#portfolio">Portfolio</a></li>
 <li><a href="#library">Books</a></li>
 <li><a href="#contact">Contact</a></li>
+
 </ul>
 
 </nav>
@@ -42,7 +46,7 @@
 <h2>About Me</h2>
 
 <p>
-زما نوم پوهان محمدخیل دی. زه د پښتو ټایپینګ، پوسټر ډیزاین،
+زما نوم پوهان محمدخیل دی. زه د پښتو ټایپینګ،
 لوګو ډیزاین او ډیجیټل ګرافیک برخه کې مهارت لرم.
 </p>
 
@@ -74,15 +78,23 @@
 <div class="books">
 
 <div class="book">
+
 <img src="book1.jpg">
+
 <h3>Pashto Typing Guide</h3>
+
 <button onclick="openBook('book1.pdf')">Read Online</button>
+
 </div>
 
 <div class="book">
+
 <img src="book2.jpg">
+
 <h3>Graphic Design Basics</h3>
+
 <button onclick="openBook('book2.pdf')">Read Online</button>
+
 </div>
 
 </div>
@@ -107,29 +119,100 @@
 
 <div id="reader">
 
-<span onclick="closeBook()">✖</span>
+<div class="reader-top">
 
-<iframe id="bookFrame"></iframe>
+<button onclick="prevPage()">◀</button>
+
+<span id="page-info"></span>
+
+<button onclick="nextPage()">▶</button>
+
+<button onclick="closeBook()">✖</button>
+
+</div>
+
+<canvas id="pdf-canvas"></canvas>
 
 </div>
 
 <script>
 
-function openBook(book){
+let pdfDoc=null;
+
+let pageNum=1;
+
+let canvas=document.getElementById('pdf-canvas');
+
+let ctx=canvas.getContext('2d');
+
+function openBook(url){
 
 document.getElementById("reader").style.display="block";
-document.getElementById("bookFrame").src=book;
+
+pdfjsLib.getDocument(url).promise.then(function(pdf){
+
+pdfDoc=pdf;
+
+renderPage(pageNum);
+
+});
+
+}
+
+function renderPage(num){
+
+pdfDoc.getPage(num).then(function(page){
+
+let viewport=page.getViewport({scale:1.5});
+
+canvas.height=viewport.height;
+
+canvas.width=viewport.width;
+
+let renderContext={
+
+canvasContext:ctx,
+
+viewport:viewport
+
+};
+
+page.render(renderContext);
+
+document.getElementById("page-info").textContent="Page "+num+" / "+pdfDoc.numPages;
+
+});
+
+}
+
+function prevPage(){
+
+if(pageNum<=1)return;
+
+pageNum--;
+
+renderPage(pageNum);
+
+}
+
+function nextPage(){
+
+if(pageNum>=pdfDoc.numPages)return;
+
+pageNum++;
+
+renderPage(pageNum);
 
 }
 
 function closeBook(){
 
 document.getElementById("reader").style.display="none";
-document.getElementById("bookFrame").src="";
 
 }
 
 </script>
 
 </body>
+
 </html>
