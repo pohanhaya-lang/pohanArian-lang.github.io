@@ -68,6 +68,14 @@ margin:auto;
 
 width:100%;
 border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
 
 }
 
@@ -107,6 +115,7 @@ cursor:pointer;
 
 }
 
+
 #reader{
 
 display:none;
@@ -136,6 +145,39 @@ cursor:pointer;
 width:100%;
 height:100%;
 border:none;
+
+}
+
+
+#imagePopup{
+
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+z-index:999;
+
+}
+
+#imagePopup img{
+
+max-width:90%;
+max-height:90%;
+margin-top:5%;
+
+}
+
+#imagePopup span{
+
+position:absolute;
+top:20px;
+right:30px;
+font-size:30px;
+color:white;
+cursor:pointer;
 
 }
 
