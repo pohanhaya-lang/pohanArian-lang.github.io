@@ -1,43 +1,22 @@
-<section id="projects">
-  <h2>My Design Portfolio</h2>
+#projects{
+padding:40px 20px;
+text-align:center;
+}
 
-  <div class="gallery">
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:30px;
+}
 
-    <div class="item">
-      <img src="Bruchers.png" alt="Design">
-    </div>
+.gallery img{
+width:100%;
+border-radius:10px;
+transition:0.3s;
+}
 
-    <div class="item">
-      <img src="Certificates.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Cover Page.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="digital poster.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Logo.jpg" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Poster.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Poster1.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Poster3.png" alt="Design">
-    </div>
-
-    <div class="item">
-      <img src="Poster4.png" alt="Design">
-    </div>
-
-  </div>
-</section>
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
