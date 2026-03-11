@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -14,7 +14,9 @@
 
 <body>
 
-<div class="sidebar">
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="sidebar" id="sidebar">
 
 <h2>Pohaan</h2>
 
@@ -30,7 +32,6 @@
 </ul>
 
 </div>
-
 
 <div class="main">
 
@@ -70,82 +71,36 @@
 </section>
 
 
-<section id="books">
-
-<h2>Books</h2>
-
-<div class="books">
-
-<div class="book">
-
-<img src="book1.jpg">
-
-<h3>Pashto Typing Guide</h3>
-
-<button onclick="openBook('book1.pdf')">Read Book</button>
-
-</div>
-
-<div class="book">
-
-<img src="book2.jpg">
-
-<h3>Graphic Design Guide</h3>
-
-<button onclick="openBook('book2.pdf')">Read Book</button>
-
-</div>
-
-</div>
-
-</section>
-
-
 <section id="contact">
 
-<h2>Contact Me</h2>
+<h2>Contact</h2>
 
-<a class="whatsapp" href="https://wa.me/93786211440" target="_blank">
+<a class="whatsapp" href="https://wa.me/93786211440" target="_blank">WhatsApp</a>
 
-WhatsApp
-
-</a>
-
-<a class="facebook" href="https://www.facebook.com/profile.php?id=100090128451326" target="_blank">
-
-Facebook
-
-</a>
+<a class="facebook" href="https://www.facebook.com/profile.php?id=100090128451326" target="_blank">Facebook</a>
 
 </section>
 
 </div>
-
-
-<div id="reader">
-
-<span onclick="closeBook()">✖</span>
-
-<iframe id="bookFrame"></iframe>
-
-</div>
-
 
 <script>
 
-function openBook(book){
+function toggleMenu(){
 
-document.getElementById("reader").style.display="block";
-document.getElementById("bookFrame").src=book;
+let sidebar=document.getElementById("sidebar");
+
+if(sidebar.style.left=="0px"){
+
+sidebar.style.left="-250px";
+
+}else{
+
+sidebar.style.left="0px";
 
 }
 
-function closeBook(){
-
-document.getElementById("reader").style.display="none";
-document.getElementById("bookFrame").src="";
-
 }
+
 
 let slideIndex=0;
 
