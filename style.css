@@ -1,9 +1,69 @@
 body{
+margin:0;
+font-family:Arial, sans-serif;
 background:#f4f4f4;
-font-family:Arial;
+text-align:center;
+}
+
+/* Header */
+
+header{
+background:#1e3a8a;
+color:white;
+padding:40px 20px;
 }
 
 .profile{
-width:140px;
+width:150px;
+height:150px;
 border-radius:50%;
+border:5px solid white;
+margin-bottom:10px;
+}
+
+/* Sections */
+
+section{
+padding:40px 20px;
+}
+
+/* About */
+
+.about{
+background:white;
+}
+
+/* Portfolio */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* Contact */
+
+.contact{
+background:white;
+}
+
+/* Footer */
+
+footer{
+background:#111;
+color:white;
+padding:20px;
 }
