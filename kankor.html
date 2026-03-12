@@ -2,52 +2,117 @@
 <html lang="ps">
 <head>
 <meta charset="UTF-8">
-<title>د کانکور ازموینې</title>
+<title>Kankor Quiz</title>
 
 <style>
+
 body{
 font-family:Arial;
-text-align:center;
 background:#f4f4f4;
+text-align:center;
 }
 
-.box{
+.container{
+width:600px;
+margin:auto;
 background:white;
 padding:30px;
-margin:40px auto;
-width:500px;
 border-radius:10px;
-box-shadow:0 0 10px gray;
+margin-top:50px;
 }
 
 button{
-padding:10px 20px;
-margin:10px;
+display:block;
+width:100%;
+padding:12px;
+margin:8px 0;
 font-size:16px;
+cursor:pointer;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
 <h1>د کانکور ازموینې سیستم</h1>
 
-<p>
-دلته د لسم، یوولسم او دولسم ټولګي د کانکور
-چمتووالي سوالونه حل کولای شئ.
-</p>
+<h2 id="question"></h2>
 
-<h3>مضمون انتخاب کړئ</h3>
+<div id="answers"></div>
 
-<a href="quiz-math.html"><button>ریاضي</button></a>
-<a href="quiz-physics.html"><button>فزیک</button></a>
-<a href="quiz-chemistry.html"><button>کیمیا</button></a>
-<a href="quiz-biology.html"><button>بیولوژي</button></a>
+<p id="result"></p>
 
 </div>
+
+<script>
+
+let questions=[
+
+{
+q:"2 + 2 = ؟",
+options:["3","4","5","6"],
+answer:1
+},
+
+{
+q:"5 × 3 = ؟",
+options:["15","10","20","8"],
+answer:0
+},
+
+{
+q:"د افغانستان پلازمینه څه ده؟",
+options:["کابل","کندهار","هرات","مزار"],
+answer:0
+}
+
+]
+
+let current=0
+let score=0
+
+function loadQuestion(){
+
+let q=questions[current]
+
+document.getElementById("question").innerText=q.q
+
+let answers=""
+
+q.options.forEach((opt,i)=>{
+answers+=`<button onclick="check(${i})">${opt}</button>`
+})
+
+document.getElementById("answers").innerHTML=answers
+
+}
+
+function check(i){
+
+if(i==questions[current].answer){
+score++
+}
+
+current++
+
+if(current<questions.length){
+loadQuestion()
+}else{
+
+document.querySelector(".container").innerHTML=
+"<h2>ازموینه ختم شوه</h2><p>ستاسو نمره: "+score+" / "+questions.length+"</p>"
+
+}
+
+}
+
+loadQuestion()
+
+</script>
 
 </body>
 </html>
