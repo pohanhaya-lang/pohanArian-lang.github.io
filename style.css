@@ -1,90 +1,158 @@
-body{
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
-text-align:center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Pohaan Mohammadkhil</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="sidebar" id="sidebar">
+
+<h2>Menu</h2>
+
+<a href="#">Home</a>
+<a href="#designs">Graphic Designs</a>
+<a href="#books">Books</a>
+<a href="#services">UI/UX Services</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<header>
+
+<h1>Pohaan Mohammadkhil</h1>
+
+<p>Graphic Designer | Writer | Administrative Manager</p>
+
+</header>
+
+<section class="slider">
+
+<img src="profile.jpg">
+<img src="Poster.png">
+<img src="Poster1.png">
+<img src="Poster3.png">
+
+</section>
+
+<section id="designs">
+
+<h2>Graphic Designs</h2>
+
+<div class="gallery">
+
+<img src="Poster.png">
+<img src="Poster1.png">
+<img src="Poster3.png">
+<img src="Poster4.png">
+
+</div>
+
+</section>
+
+<section id="books">
+
+<h2>Books</h2>
+
+<div class="books">
+
+<div class="book">
+
+<img src="book1.jpg">
+
+<h3>Pashto Typing Guide</h3>
+
+<a href="book1.pdf" target="_blank">Read Online</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>UI / UX Services</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>Website UI Design</h3>
+<p>Modern user interface design for websites.</p>
+</div>
+
+<div class="service">
+<h3>UX Research</h3>
+<p>Improving user experience and usability.</p>
+</div>
+
+<div class="service">
+<h3>Mobile App Design</h3>
+<p>Professional UI for Android and iOS apps.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<a class="whatsapp"
+href="https://wa.me/93786211440"
+target="_blank">WhatsApp</a>
+
+<a class="facebook"
+href="https://www.facebook.com/profile.php?id=100090128451326"
+target="_blank">Facebook</a>
+
+</section>
+
+<script>
+
+function toggleMenu(){
+let menu=document.getElementById("sidebar");
+
+if(menu.style.left=="0px"){
+menu.style.left="-220px";
+}else{
+menu.style.left="0px";
+}
+}
+
+let slideIndex=0;
+
+showSlides();
+
+function showSlides(){
+
+let slides=document.querySelectorAll(".slider img");
+
+slides.forEach(img=>img.style.display="none");
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(showSlides,3000);
 
 }
 
-header{
+</script>
 
-background:#1e3a8a;
-color:white;
-padding:60px 20px;
-
-}
-
-.slider{
-
-max-width:700px;
-margin:auto;
-
-}
-
-.slider img{
-
-width:100%;
-border-radius:12px;
-display:none;
-
-}
-
-.gallery{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:30px;
-
-}
-
-.gallery img{
-
-width:100%;
-border-radius:10px;
-
-}
-
-.books{
-
-display:flex;
-justify-content:center;
-
-}
-
-.book{
-
-background:white;
-padding:15px;
-border-radius:10px;
-
-}
-
-.book img{
-
-width:200px;
-
-}
-
-.whatsapp{
-
-background:#25D366;
-color:white;
-padding:10px 20px;
-border-radius:6px;
-text-decoration:none;
-margin:10px;
-
-}
-
-.facebook{
-
-background:#1877F2;
-color:white;
-padding:10px 20px;
-border-radius:6px;
-text-decoration:none;
-margin:10px;
-
-}
+</body>
+</html>
