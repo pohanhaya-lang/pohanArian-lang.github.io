@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="ps">
-
 <head>
+
 <meta charset="UTF-8">
 <title>Kankor Quiz</title>
 
-<link rel="stylesheet" href="css/style.css">
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#1e90ff,#00c6ff);
+text-align:center;
+margin:0;
+}
+
+h1{
+color:white;
+margin-top:40px;
+}
+
+.quiz-box{
+width:600px;
+background:white;
+margin:40px auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+#question{
+font-size:22px;
+margin:20px 0;
+}
+
+button{
+display:block;
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+background:#1e90ff;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0066cc;
+}
+
+.next{
+background:#28a745;
+}
+
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
 
 </head>
 
@@ -13,28 +68,91 @@
 
 <h1>د کانکور ازموینه</h1>
 
-<div class="quiz-container">
+<div class="quiz-box">
 
-<div id="question">پوښتنه دلته ښکاري</div>
+<div id="question"></div>
 
-<div id="answers">
-<button onclick="checkAnswer(0)" id="a0"></button>
-<button onclick="checkAnswer(1)" id="a1"></button>
-<button onclick="checkAnswer(2)" id="a2"></button>
-<button onclick="checkAnswer(3)" id="a3"></button>
-</div>
+<button onclick="answer(0)" id="a0"></button>
+<button onclick="answer(1)" id="a1"></button>
+<button onclick="answer(2)" id="a2"></button>
+<button onclick="answer(3)" id="a3"></button>
 
-<br>
+<button class="next" onclick="next()">بله پوښتنه</button>
 
-<button onclick="nextQuestion()">بله پوښتنه</button>
+<div id="result"></div>
 
 </div>
 
-<script src="data/questions.js"></script>
-<script src="js/quiz.js"></script>
+<script>
+
+var questions=[
+
+{
+q:"افغانستان څو ولایتونه لري؟",
+a:["۳۰","۳۴","۲۸","۳۲"],
+c:1
+},
+
+{
+q:"2 + 3 څو کېږي؟",
+a:["4","5","6","7"],
+c:1
+},
+
+{
+q:"کابل د کوم هېواد پلازمینه ده؟",
+a:["پاکستان","افغانستان","ایران","هند"],
+c:1
+}
+
+];
+
+var current=0;
+var score=0;
+
+function load(){
+
+document.getElementById("question").innerText=questions[current].q;
+
+for(var i=0;i<4;i++){
+document.getElementById("a"+i).innerText=questions[current].a[i];
+}
+
+}
+
+function answer(i){
+
+if(i==questions[current].c){
+alert("سم ځواب!");
+score++;
+}else{
+alert("غلط ځواب");
+}
+
+}
+
+function next(){
+
+current++;
+
+if(current>=questions.length){
+
+document.getElementById("result").innerText="ستاسې نمرې: "+score+" / "+questions.length;
+
+current=0;
+score=0;
+
+return;
+
+}
+
+load();
+
+}
+
+load();
+
+</script>
 
 </body>
 </html>
-
-<script src="data/questions.js"></script>
-<script src="js/quiz.js"></script>
