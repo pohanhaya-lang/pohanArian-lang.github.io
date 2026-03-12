@@ -1,118 +1,37 @@
 <!DOCTYPE html>
 <html lang="ps">
+
 <head>
 <meta charset="UTF-8">
 <title>Kankor Quiz</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:#f4f4f4;
-text-align:center;
-}
-
-.container{
-width:600px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:10px;
-margin-top:50px;
-}
-
-button{
-display:block;
-width:100%;
-padding:12px;
-margin:8px 0;
-font-size:16px;
-cursor:pointer;
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<h1>د کانکور ازموینه</h1>
 
-<h1>د کانکور ازموینې سیستم</h1>
+<div class="quiz-container">
 
-<h2 id="question"></h2>
+<div id="question">پوښتنه دلته ښکاري</div>
 
-<div id="answers"></div>
+<div id="answers">
+<button onclick="checkAnswer(0)" id="a0"></button>
+<button onclick="checkAnswer(1)" id="a1"></button>
+<button onclick="checkAnswer(2)" id="a2"></button>
+<button onclick="checkAnswer(3)" id="a3"></button>
+</div>
 
-<p id="result"></p>
+<br>
+
+<button onclick="nextQuestion()">بله پوښتنه</button>
 
 </div>
 
-<script>
-
-let questions=[
-
-{
-q:"2 + 2 = ؟",
-options:["3","4","5","6"],
-answer:1
-},
-
-{
-q:"5 × 3 = ؟",
-options:["15","10","20","8"],
-answer:0
-},
-
-{
-q:"د افغانستان پلازمینه څه ده؟",
-options:["کابل","کندهار","هرات","مزار"],
-answer:0
-}
-
-]
-
-let current=0
-let score=0
-
-function loadQuestion(){
-
-let q=questions[current]
-
-document.getElementById("question").innerText=q.q
-
-let answers=""
-
-q.options.forEach((opt,i)=>{
-answers+=`<button onclick="check(${i})">${opt}</button>`
-})
-
-document.getElementById("answers").innerHTML=answers
-
-}
-
-function check(i){
-
-if(i==questions[current].answer){
-score++
-}
-
-current++
-
-if(current<questions.length){
-loadQuestion()
-}else{
-
-document.querySelector(".container").innerHTML=
-"<h2>ازموینه ختم شوه</h2><p>ستاسو نمره: "+score+" / "+questions.length+"</p>"
-
-}
-
-}
-
-loadQuestion()
-
-</script>
+<script src="data/questions.js"></script>
+<script src="js/quiz.js"></script>
 
 </body>
 </html>
