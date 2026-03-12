@@ -1,86 +1,19 @@
 body{
 
-margin:0;
 font-family:Arial;
+margin:0;
 background:#f5f5f5;
+text-align:center;
 
 }
 
+header{
 
-.menu-btn{
-
-font-size:26px;
-position:fixed;
-top:15px;
-left:15px;
-background:#111;
+background:#1e3a8a;
 color:white;
-border:none;
-padding:8px 12px;
-border-radius:6px;
-z-index:1000;
+padding:60px 20px;
 
 }
-
-
-.sidebar{
-
-position:fixed;
-left:-250px;
-top:0;
-width:220px;
-height:100%;
-background:#111;
-color:white;
-padding:20px;
-transition:0.3s;
-
-}
-
-.sidebar ul{
-
-list-style:none;
-padding:0;
-
-}
-
-.sidebar li{
-
-margin:15px 0;
-
-}
-
-.sidebar a{
-
-color:white;
-text-decoration:none;
-
-}
-
-.search{
-
-width:100%;
-padding:8px;
-margin-bottom:20px;
-border-radius:5px;
-border:none;
-
-}
-
-
-.main{
-
-padding:20px;
-
-}
-
-
-h1{
-
-margin-top:40px;
-
-}
-
 
 .slider{
 
@@ -92,45 +25,31 @@ margin:auto;
 .slider img{
 
 width:100%;
-border-radius:15px;
+border-radius:12px;
 display:none;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
 
 }
-
 
 .gallery{
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+gap:20px;
+padding:30px;
 
 }
 
 .gallery img{
 
 width:100%;
-height:200px;
-object-fit:cover;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
-transition:0.3s;
+border-radius:10px;
 
 }
-
-.gallery img:hover{
-
-transform:scale(1.05);
-
-}
-
 
 .books{
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
+display:flex;
+justify-content:center;
 
 }
 
@@ -139,82 +58,33 @@ gap:25px;
 background:white;
 padding:15px;
 border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
 
 }
 
 .book img{
 
-width:100%;
-border-radius:8px;
+width:200px;
 
 }
-
-.book button{
-
-background:#2563eb;
-color:white;
-padding:10px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-
-}
-
 
 .whatsapp{
 
-display:inline-block;
 background:#25D366;
 color:white;
-padding:12px 20px;
-margin:10px;
+padding:10px 20px;
 border-radius:6px;
 text-decoration:none;
+margin:10px;
 
 }
 
 .facebook{
 
-display:inline-block;
 background:#1877F2;
 color:white;
-padding:12px 20px;
-margin:10px;
+padding:10px 20px;
 border-radius:6px;
 text-decoration:none;
-
-}
-
-
-#reader{
-
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-z-index:999;
-
-}
-
-#reader iframe{
-
-width:100%;
-height:100%;
-border:none;
-
-}
-
-#reader span{
-
-position:absolute;
-top:20px;
-right:30px;
-font-size:30px;
-color:white;
-cursor:pointer;
+margin:10px;
 
 }
